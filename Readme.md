@@ -3,6 +3,7 @@
 - Using React Native components for displaying lists and other components.
 - Used React Native Navigation for navigating between different screens.
 - Testing performend using Jest and Enzyme libraries with Typescript.
+- Please use the appropiate api_key for accessing movie database
 
 Steps to run the application:
 

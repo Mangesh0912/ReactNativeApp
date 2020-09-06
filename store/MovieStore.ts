@@ -85,10 +85,12 @@ class MovieStore {
     }
   }
 
+  @action
   addToFavorites(movieObject: IMovieObject) {
     this.movieObjects.push(movieObject);
   }
 
+  @action
   removeFromFavorites(movieObject: IMovieObject) {
     this.movieObjects = this.movieObjects.filter(
       (v) => v.id !== movieObject.id

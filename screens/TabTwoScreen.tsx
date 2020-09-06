@@ -61,24 +61,17 @@ const TabTwoScreen = (props: any) => {
   );
 
   const handleLoadMore = () => {
-    //alert("Handle load more");
     let pageNumber = Number.parseInt(pageNo) + 1;
     const totalPages = movieStore.totalPages;
-    // alert("Load More!!");
     if (pageNumber > totalPages) {
       return;
     }
     setPageNo(pageNumber.toString());
     fetchMovieListByGenreId(pageNo);
-    // movieStore.getMoviesFromGenreSelected(getCurrentSelectedGenreId(), pageNo);
   };
 
   return (
     <View style={styles.listcontainer}>
-      <Text>
-        Total Pages: {movieStore.totalPages} - Recrods per page:{" "}
-        {movieStore.recordsPerPage}
-      </Text>
       <FlatList
         data={movieList}
         renderItem={_renderItem}
