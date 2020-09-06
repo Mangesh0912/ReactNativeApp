@@ -4,6 +4,7 @@
 - Used React Native Navigation for navigating between different screens.
 - Testing performend using Jest and Enzyme libraries with Typescript.
 - Please use the appropiate api_key for accessing movie database
+- Mobx store has been used for the state management and making api calls.
 
 Steps to run the application:
 
