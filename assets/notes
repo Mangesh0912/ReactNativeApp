@@ -1,0 +1,9 @@
+Fetch the categories:
+https://api.themoviedb.org/3/genre/movie/list?api_key=9c972648f57bb1454c4a75e4c2f3d3dd&language=en-US
+
+Fetch the movies in category:
+https://api.themoviedb.org/3/discover/movie?api_key=9c972648f57bb1454c4a75e4c2f3d3dd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_genres=18
+
+Fetch the movie information:
+https://api.themoviedb.org/3/movie/413518?api_key=9c972648f57bb1454c4a75e4c2f3d3dd&language=en-US
+

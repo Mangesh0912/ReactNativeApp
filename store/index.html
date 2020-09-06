@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head></head>
+
+<body>
+
+      <script>
+
+
+           function solution(A) {
+               let moments = 0;
+               if(!A || A.length == 0) {
+                   return moments;
+               }
+
+               let turnedOnBulbs = [];
+
+               for(let i = 0 ; i < A.length; i ++) {
+                    turnedOnBulbs.push(A[i]);
+                    let currentBulbValue = A[i];
+                    if(currentBulbValue === 1) {
+                        moments ++;
+                        continue;
+                    }
+                    currentBulbValue = currentBulbValue - 1;
+                    var allBulbsBeforeCurrentOneAreLit = true;
+                    while(currentBulbValue > 0) {
+                        if(turnedOnBulbs.indexOf(currentBulbValue) < 0) {
+                             allBulbsBeforeCurrentOneAreLit = false;
+                             break;
+                        }
+                        currentBulbValue = currentBulbValue - 1;
+                    }
+                    if(allBulbsBeforeCurrentOneAreLit) {
+                        moments ++;
+                    }
+               }
+
+               console.log("Turned on bulbs are :", turnedOnBulbs)
+
+               return moments;
+           }
+
+           var arr = [2,1,3,5,4];
+          // var moments = solution(arr);
+         //  console.log("Moments are :", moments)
+
+           //======================================
+
+           //Y=2014, A="April", B ="May", W="Wendesday" day of week for first january
+
+           function solution(Y,A,B,W) {
+             
+               var numberOfWeeksSpent = 0;
+
+               var weekday = new Array(7);
+               weekday[0] = "Sunday";
+               weekday[1] = "Monday";
+               weekday[2] = "Tuesday";
+               weekday[3] = "Wednesday";
+               weekday[4] = "Thursday";
+               weekday[5] = "Friday";
+               weekday[6] = "Saturday";
+
+               
+               var month = new Array(13);
+               month[0] = "January";
+               month[1] = "February";
+               month[2] = "March";
+               month[3] = "April";
+               month[4] = "May";
+               month[5] = "June";
+               month[6] = "July";
+               month[7] = "August";
+               month[8] = "September";
+               month[9] = "October";
+               month[10] = "November";
+               month[11] = "December";
+
+               var daysInaMonth = new Array(12);
+               daysInaMonth[0] = 31;
+               daysInaMonth[1] = (Y % 4 === 0) ? 29 : 28;
+               daysInaMonth[2] = 31;
+               daysInaMonth[3] = 30;
+               daysInaMonth[4] = 31;
+               daysInaMonth[5] = 30;
+               daysInaMonth[6] = 31;
+               daysInaMonth[7] = 31;
+               daysInaMonth[8] = 30;
+               daysInaMonth[9] = 31;
+               daysInaMonth[10] = 30;
+               daysInaMonth[11] = 31;
+
+               const startDate = month.indexOf(A) + 1 + "/" + "1" + "/" + Y;
+               const endDate = month.indexOf(B) + 1 + "/" + daysInaMonth[month.indexOf(B)] + "/" + Y;
+               console.log("Passed month is:", startDate);
+               console.log("End date is:", endDate)
+               var d1 = new Date(startDate);
+               var d2 = new Date(endDate);
+               var indexOfDay = d1.getDay();
+               var dayOfWeek = weekday[d1.getDay()];
+
+               if(indexOfDay !== 1) {
+                   //calculate the number of days to be increemented to reach 1
+                   let count = 0;
+                   let size = weekday.length;
+                   let currentIndex = indexOfDay;
+                   while(currentIndex % size !== 1) {
+                       count ++;
+                       currentIndex = currentIndex + 1;
+                   }
+                   console.log("Count is:" + count);
+                   d1.setDate(d1.getDate() + count);
+                   console.log("Incremented final date is:", d1)
+               }
+               console.log("d2 is:", d2)
+               while(d1.getTime() < d2.getTime()) {
+                     console.log("Current date is:", d1)
+                     numberOfWeeksSpent ++ ;
+                     d1.setDate(d1.getDate() + 7);
+               }
+
+               var finalDateDayOfTheWeek = weekday[d1.getDay()];
+               if(finalDateDayOfTheWeek !== "Sunday") {
+                    numberOfWeeksSpent -- ;
+               }
+
+               console.log("Final date is:", d1, " day of the week is:", weekday[d1.getDay()])
+
+
+               console.log("Day of the week is:" ,weekday[d1.getDay()], " Index is:", d1.getDay())
+               console.log("Month of the year is:",month[d1.getMonth()]);
+               console.log("Number of weeks spent:",numberOfWeeksSpent);
+
+
+           }
+
+           solution(2014,"April","May","Wednesday");
+
+
+      </script>    
+
+</body>
+
+</html>
